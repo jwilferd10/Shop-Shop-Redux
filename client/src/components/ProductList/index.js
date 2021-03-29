@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import ProductItem from "../ProductItem";
-import { useStoreContext } from "../../utils/GlobalState";
+// Comment out this import since we're no longer calling from GlobalState.
+// import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_PRODUCTS } from "../../utils/actions";
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif"
+// Import useDispatch and useSelector from react redux
 import { useDispatch, useSelector } from 'react-redux';
 
 function ProductList() {
