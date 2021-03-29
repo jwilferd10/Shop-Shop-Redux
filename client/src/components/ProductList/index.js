@@ -6,9 +6,21 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif"
+import { useDispatch, useSelector } from 'react-redux';
 
 function ProductList() {
-  const [state, dispatch] = useStoreContext();
+
+  const state = useSelector((state) => {
+    return state
+  });
+
+  const dispatch = useDispatch();
+
+  // Comment this out, refactoring makes this redundant
+  // const [state, dispatch] = useStoreContext();
+
+  // data products on empty array 
+  const products = data?.products || [];
 
   const { currentCategory } = state;
 
@@ -44,7 +56,7 @@ function ProductList() {
   return (
     <div className="my-2">
       <h2>Our Products:</h2>
-      {state.products.length ? (
+      {products.length ? (
         <div className="flex-row">
             {filterProducts().map(product => (
                 <ProductItem
