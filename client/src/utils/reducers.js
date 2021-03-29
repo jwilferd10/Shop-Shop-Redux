@@ -1,4 +1,9 @@
-import { useReducer } from "react";
+// Comment out the import, we're no longer using this particular Reducer
+// Will be exporting something else
+
+// import { useReducer } from "react";
+
+// Should stay the same 
 import {
   UPDATE_PRODUCTS,
   ADD_TO_CART,
@@ -13,8 +18,20 @@ import {
 
 // With GlobalState.js being removed I --THINK-- we should call the object from that js here. 
 
+// defaultState is taking the object obtained from GlobalState.js
+// It's calling the same exact object that was the const StoreProvider
+const defaultState = {
+  
+  products: [],
+  cart: [],
+  cartOpen: false,
+  categories: [],
+  currentCategory: '',
 
-export const reducer = (state, action) => {
+}
+
+// Because of the new refactor, call defaultState within the arguments before action 
+export const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_PRODUCTS:
       return {
@@ -88,6 +105,11 @@ export const reducer = (state, action) => {
   }
 };
 
-export function useProductReducer(initialState) {
-  return useReducer(reducer, initialState)
-}
+// Export the default state of our reducer (which has defaultState already within it)
+export default reducer;
+
+// useReducer from React has been commented out. This has made the current export relatively redundant 
+
+// export function useProductReducer(initialState) {
+//   return useReducer(reducer, initialState)
+// }
