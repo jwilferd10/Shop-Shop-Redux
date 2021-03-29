@@ -11,6 +11,9 @@ import {
   TOGGLE_CART
 } from "./actions";
 
+// With GlobalState.js being removed I --THINK-- we should call the object from that js here. 
+
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case UPDATE_PRODUCTS:
