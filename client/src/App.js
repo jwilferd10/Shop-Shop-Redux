@@ -14,6 +14,8 @@ import Success from "./pages/Success";
 import OrderHistory from "./pages/OrderHistory";
 // Import store from our store.js
 import store from './utils/store';
+// Import the Provider from react-redux
+import { Provider } from 'react-redux';
 
 const client = new ApolloClient({
   request: (operation) => {

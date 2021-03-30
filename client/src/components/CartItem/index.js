@@ -9,9 +9,10 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const CartItem = ({ item }) => {
 
-  const state = useSelector((state) => {
-    return state
-  });
+  // For some reason it doesn't like it when I have this state. Which is reasonable since it isn't called
+  // const state = useSelector((state) => {
+  //   return state
+  // });
 
   const dispatch = useDispatch();
 
