@@ -21,9 +21,6 @@ function ProductList() {
   // Comment this out, refactoring makes this redundant
   // const [state, dispatch] = useStoreContext();
 
-  // data products on empty array 
-  // const products = data?.products || [];
-
   const { currentCategory } = state;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
